@@ -1,8 +1,5 @@
 module Mandelbruh
     ( mandelbruh,
-      someFunc,
-      f,
-      series,
       inMandelbrot
     ) where
 
@@ -22,5 +19,5 @@ inMandelbrot =
 
 mandelbruh = 42
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+readComplex :: String -> Complex Float
+readComplex s = read s :: Complex Float
