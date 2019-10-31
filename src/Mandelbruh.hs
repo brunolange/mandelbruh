@@ -13,7 +13,7 @@ series c = iterate (f c) 0
 
 inMandelbrot :: RealFloat a => Complex a -> Bool
 inMandelbrot =
-  let ceiling = 100
+  let ceiling = 100 -- TODO: move to config file
       samples = 20
       in all (< ceiling) . map magnitude . take samples . series
 
