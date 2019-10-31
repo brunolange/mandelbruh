@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 382ce6cea37b997bd6ee59ed4cd9c4c67fb3e9859c76c83a426be94b93c11800
+-- hash: 7685b7a66c1f3dbeabee2b6e818bf4506c545fee5ecfb2a36b832c7cf6af78e0
 
 name:           mandelbruh
 version:        0.1.0.0
@@ -27,7 +27,6 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
       Mandelbruh
   other-modules:
       Paths_mandelbruh
