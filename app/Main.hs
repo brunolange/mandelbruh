@@ -1,12 +1,11 @@
 module Main where
 
 import Mandelbruh
-import Data.Complex
 
-answer :: RealFloat a => Complex a -> String
+answer :: C -> String
 answer z = if (inMandelbrot z) then "Yes!" else "nope"
 
-readc z = read z :: Complex Float
+readc z = read z :: C
 
 main :: IO ()
 main = do

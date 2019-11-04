@@ -1,17 +1,24 @@
 module Mandelbruh
-    ( mandelbruh,
-      inMandelbrot
+    ( C,
+      mandelbruh,
+      inMandelbrot,
+      color,
+      series
     ) where
 
 import Data.Complex
 
-f :: RealFloat a => Complex a -> Complex a -> Complex a
+type C = Complex Float
+
+f :: C -> C -> C
 f c z = z^2 + c
 
-series :: RealFloat a => Complex a -> [Complex a]
+type Series = [C]
+
+series :: C -> Series
 series c = iterate (f c) 0
 
-inMandelbrot :: RealFloat a => Complex a -> Bool
+inMandelbrot :: C -> Bool
 inMandelbrot =
   let ceiling = 100 -- TODO: move to config file
       samples = 20
@@ -19,5 +26,16 @@ inMandelbrot =
 
 mandelbruh = 42
 
-readComplex :: String -> Complex Float
-readComplex s = read s :: Complex Float
+readComplex :: String -> C
+readComplex s = read s :: C
+
+type Color = Char
+type Palette = [Color]
+
+color :: Palette -> Series -> Color
+color palette = (palette !!) . length . take n . takeWhile fairlyClose
+  where n = length palette - 1
+        fairlyClose c = magnitude c < ceiling
+        ceiling = 100
+
+type Image color = C -> color
