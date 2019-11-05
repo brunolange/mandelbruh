@@ -16,7 +16,7 @@ f c z = z^2 + c
 type Series = [C]
 
 series :: C -> Series
-series c = iterate (f c) 0
+series c = iterate (f c) c
 
 inMandelbrot :: C -> Bool
 inMandelbrot =
